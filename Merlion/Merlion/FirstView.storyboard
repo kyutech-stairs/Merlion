@@ -13,7 +13,7 @@
         <!--item1-->
         <scene sceneID="srF-t9-jnD">
             <objects>
-                <viewController title="item1" id="1cx-qa-GAb" sceneMemberID="viewController">
+                <viewController title="item1" id="1cx-qa-GAb" customClass="FirstViewController" customModule="Merlion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cNQ-Wz-tKG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OuG-mf-YHk"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="z50-Ss-K9i" id="bef-xF-X0b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqJ-cQ-gys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

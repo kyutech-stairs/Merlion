@@ -13,7 +13,7 @@
         <!--item2-->
         <scene sceneID="Zgr-bV-m4C">
             <objects>
-                <viewController title="item2" id="Sq2-Qo-2Sh" sceneMemberID="viewController">
+                <viewController title="item2" id="Sq2-Qo-2Sh" customClass="SecondViewController" customModule="Merlion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ba-QU-kqM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
