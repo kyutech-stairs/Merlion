@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Merlion
 //
-//  Created by 陰山賢太 on 2019/06/06.
+//  Created by kageken, yone on 2019/06/06.
 //  Copyright © 2019 Kageken. All rights reserved.
 //
 
