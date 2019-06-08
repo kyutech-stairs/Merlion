@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A84B5C622A9437F006A490A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84B5C522A9437F006A490A /* FirstViewController.swift */; };
+		FB3631C622AB9752006165AA /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3631C522AB9752006165AA /* NotificationController.swift */; };
 		FB75B72322AA97F20069D24C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72122AA97F20069D24C /* Alamofire.framework */; };
 		FB75B72422AA97F20069D24C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72122AA97F20069D24C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB75B72522AA97F20069D24C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72222AA97F20069D24C /* SwiftyJSON.framework */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		8A84B5C522A9437F006A490A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		FB3631C522AB9752006165AA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		FB75B72122AA97F20069D24C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB75B72222AA97F20069D24C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		FBDBBAE122A9340100F159EA /* Merlion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merlion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				FBDBBAE422A9340100F159EA /* AppDelegate.swift */,
 				8A84B5C522A9437F006A490A /* FirstViewController.swift */,
 				FBDBBAE622A9340100F159EA /* SecondViewController.swift */,
+				FB3631C522AB9752006165AA /* NotificationController.swift */,
 				FBDBBAE822A9340100F159EA /* Main.storyboard */,
 				FBDBBAF922A9382200F159EA /* FirstView.storyboard */,
 				FBDBBAFB22A9383800F159EA /* SecondView.storyboard */,
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3631C622AB9752006165AA /* NotificationController.swift in Sources */,
 				FBDBBAE722A9340100F159EA /* SecondViewController.swift in Sources */,
 				FBDBBAE522A9340100F159EA /* AppDelegate.swift in Sources */,
 				FBDBBAED22A9340100F159EA /* Merlion.xcdatamodeld in Sources */,

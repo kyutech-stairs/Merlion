@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sq2-Qo-2Sh">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,24 +15,42 @@
             <objects>
                 <viewController title="item2" id="Sq2-Qo-2Sh" customClass="SecondViewController" customModule="Merlion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ba-QU-kqM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="view2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV3-de-klO">
-                                <rect key="frame" x="186" y="438" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvh-9n-jii">
+                                <rect key="frame" x="130" y="436" width="154" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Set Notification"/>
+                                <connections>
+                                    <action selector="tappedButton:" destination="Sq2-Qo-2Sh" eventType="touchUpInside" id="njT-CR-E4d"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="euT-HC-Dvn">
+                                <rect key="frame" x="0.0" y="145" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="581675860.41707397">
+                                    <!--2019-06-08 08:37:40 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="euT-HC-Dvn" firstAttribute="top" secondItem="Dts-Dg-FLh" secondAttribute="top" constant="125" id="OiO-ha-FvC"/>
+                            <constraint firstItem="euT-HC-Dvn" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" id="T9H-Ys-83X"/>
+                            <constraint firstItem="Fvh-9n-jii" firstAttribute="top" secondItem="euT-HC-Dvn" secondAttribute="bottom" constant="75" id="Xo7-0h-A8c"/>
+                            <constraint firstItem="Fvh-9n-jii" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" constant="130" id="mjD-t6-anp"/>
+                            <constraint firstItem="Dts-Dg-FLh" firstAttribute="trailing" secondItem="Fvh-9n-jii" secondAttribute="trailing" constant="130" id="xFB-ak-W5i"/>
+                            <constraint firstItem="euT-HC-Dvn" firstAttribute="trailing" secondItem="Dts-Dg-FLh" secondAttribute="trailing" id="zLQ-CB-aSm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Dts-Dg-FLh"/>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="euT-HC-Dvn" id="14o-Cc-lab"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjo-2P-3ml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="166"/>
+            <point key="canvasLocation" x="95.652173913043484" y="164.67391304347828"/>
         </scene>
     </scenes>
 </document>
