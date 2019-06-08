@@ -6,6 +6,9 @@
 //  Copyright © 2019 Kageken. All rights reserved.
 //
 
+// 通知設定用ファイル
+// のちのち使用するかも
+
 import Foundation
 import UserNotifications
 
