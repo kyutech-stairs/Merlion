@@ -16,14 +16,10 @@ class SecondViewController: UIViewController {
     //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //setNotification()
     }
 
     //MARK: - Actions
     @IBAction func tappedButton(_ sender: Any) {
-        //setNotification()
-
         print("notification is fire")
 
         //通知内容を設定
