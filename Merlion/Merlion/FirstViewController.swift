@@ -12,14 +12,14 @@ import SwiftyJSON
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var label: UILabel!
 
     let apiKey = "2a97a0fb261c0f493b1c1fbc319e49a8"
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     //let qiitaUrl = "http://qiita-stock.info/api.json"
     var items: [JSON] = []
 
-    //MARK: - override functions
+    // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,12 +29,12 @@ class FirstViewController: UIViewController {
         getData()
     }
 
-    //MARK: - private functions
-    //MARK: - 天気予報を取得
+    // MARK: - private functions
+    // MARK: - 天気予報を取得
     private func getData() {
-        //FIXME: - idベタ書きなので後で修正
-        Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=1861835&APPID=2a97a0fb261c0f493b1c1fbc319e49a8").responseJSON { response in
-            print(response.result.value as Any) // テスト表示
+
+        Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=1861835&APPID=2a97a0fb261c0f493b1c1fbc319e49a8")
+            .responseJSON { response in print(response.result.value as Any) // テスト表示
         }
     }
 
