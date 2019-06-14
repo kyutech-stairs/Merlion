@@ -13,8 +13,8 @@
 		FB75B72422AA97F20069D24C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72122AA97F20069D24C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB75B72522AA97F20069D24C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72222AA97F20069D24C /* SwiftyJSON.framework */; };
 		FB75B72622AA97F20069D24C /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72222AA97F20069D24C /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FB935A8622B3CB6B0096EE37 /* apikey.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB935A8522B3CB6B0096EE37 /* apikey.plist */; };
 		FB935A8822B3CF6E0096EE37 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB935A8722B3CF6E0096EE37 /* KeyManager.swift */; };
+		FB935A8A22B3D81E0096EE37 /* apikey.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB935A8922B3D81E0096EE37 /* apikey.plist */; };
 		FBDBBAE522A9340100F159EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDBBAE422A9340100F159EA /* AppDelegate.swift */; };
 		FBDBBAE722A9340100F159EA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDBBAE622A9340100F159EA /* SecondViewController.swift */; };
 		FBDBBAEA22A9340100F159EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDBBAE822A9340100F159EA /* Main.storyboard */; };
@@ -45,8 +45,8 @@
 		FB3631C522AB9752006165AA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		FB75B72122AA97F20069D24C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB75B72222AA97F20069D24C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		FB935A8522B3CB6B0096EE37 /* apikey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikey.plist; sourceTree = "<group>"; };
 		FB935A8722B3CF6E0096EE37 /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
+		FB935A8922B3D81E0096EE37 /* apikey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikey.plist; sourceTree = "<group>"; };
 		FBDBBAE122A9340100F159EA /* Merlion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merlion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDBBAE422A9340100F159EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBDBBAE622A9340100F159EA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 				FBDBBAEE22A9340300F159EA /* Assets.xcassets */,
 				FBDBBAF022A9340300F159EA /* LaunchScreen.storyboard */,
 				FBDBBAF322A9340300F159EA /* Info.plist */,
-				FB935A8522B3CB6B0096EE37 /* apikey.plist */,
+				FB935A8922B3D81E0096EE37 /* apikey.plist */,
 				FBDBBAEB22A9340100F159EA /* Merlion.xcdatamodeld */,
 			);
 			path = Merlion;
@@ -171,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBDBBAF222A9340300F159EA /* LaunchScreen.storyboard in Resources */,
-				FB935A8622B3CB6B0096EE37 /* apikey.plist in Resources */,
+				FB935A8A22B3D81E0096EE37 /* apikey.plist in Resources */,
 				FBDBBAEF22A9340300F159EA /* Assets.xcassets in Resources */,
 				FBDBBAFC22A9383800F159EA /* SecondView.storyboard in Resources */,
 				FBDBBAFA22A9382200F159EA /* FirstView.storyboard in Resources */,
