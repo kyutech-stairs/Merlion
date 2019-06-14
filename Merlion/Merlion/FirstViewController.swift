@@ -18,6 +18,9 @@ class FirstViewController: UIViewController {
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     //let qiitaUrl = "http://qiita-stock.info/api.json"
     var items: [JSON] = []
+    var cellItems = NSMutableArray()
+    let cellNum = 10
+    var selectedInfo : String?
 
     // MARK: - override functions
     override func viewDidLoad() {
@@ -37,5 +40,44 @@ class FirstViewController: UIViewController {
             .responseJSON { response in print(response.result.value as Any) // テスト表示
         }
     }
+    
+    // セクション数を設定
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // 1セクションあたりの行数を設定
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.cellNum
+    }
+    
+    
+    func makeTableData() {
+        let url = URL(string: self.weatherUrl)!
+        let task = URLSession.shared.dataTask(with: url){(data, responce, error) in
+            if error == nil {
+                do {
+                    // リソースの取得が終わると、ここに書いた処理が実行される
+                    let json = try JSON(data: data!)
+                    // 各セルに情報を突っ込む
+                    for i in 0 ..< self.cellNum {
+                        let dt_txt = json["list"][i]["dt_txt"]
+                        let weatherMain = json["list"][i]["weather"][0]["main"]
+                        let weatherDescription = json["list"][i]["weather"][0]["description"]
+                        let info = "\(dt_txt), \(weatherMain), \(weatherDescription)"
+                        print(info)
+                        self.cellItems[i] = info
+                    }
+                    self.tableView.reloadData()
+                    
+                } catch let jsonError {
+                    //print(jsonError.localizedDescription)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
 
 }
