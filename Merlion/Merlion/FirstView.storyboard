@@ -12,7 +12,7 @@
         <!--weather-->
         <scene sceneID="spG-DP-BgA">
             <objects>
-                <tableViewController title="weather" id="aiw-qY-n21" sceneMemberID="viewController">
+                <tableViewController title="weather" id="aiw-qY-n21" customClass="FirstViewController" customModule="Merlion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hfx-CU-57g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

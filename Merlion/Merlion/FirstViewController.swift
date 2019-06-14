@@ -10,13 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class FirstViewController: UIViewController {
+class FirstViewController: UITableViewController {
 
     @IBOutlet private weak var label: UILabel!
 
-    let apiKey = "2a97a0fb261c0f493b1c1fbc319e49a8"
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
-    //let qiitaUrl = "http://qiita-stock.info/api.json"
     var items: [JSON] = []
     var cellItems = NSMutableArray()
     let cellNum = 10
@@ -27,31 +25,45 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
 
         //debug
-        self.label.text = "Hello World"
         print("new items")
-        getData()
+        let id = "1861835" // 飯塚市のID
+
+        getData(cityID: id)
+        makeTableData()
     }
 
-    // MARK: - private functions
-    // MARK: - 天気予報を取得
-    private func getData() {
-
-        Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=1861835&APPID=2a97a0fb261c0f493b1c1fbc319e49a8")
-            .responseJSON { response in print(response.result.value as Any) // テスト表示
+    //MARK: - private functions
+    //MARK: - 天気予報を取得
+    private func getData(cityID: String) {
+    
+        if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
+            Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
+                print(response.result.value as Any) // テスト表示
+            }
         }
     }
     
     // セクション数を設定
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     // 1セクションあたりの行数を設定
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cellNum
     }
     
+    // cellにテスト表示を突っ込む
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if self.cellItems.count > 0 {
+            cell.textLabel?.text = self.cellItems[indexPath.row] as? String
+        }
+        return cell
+    }
     
+    // APIをたたいて、配列に保存する
+    // 非同期でAPIを叩いている
     func makeTableData() {
         let url = URL(string: self.weatherUrl)!
         let task = URLSession.shared.dataTask(with: url){(data, responce, error) in
@@ -68,16 +80,15 @@ class FirstViewController: UIViewController {
                         print(info)
                         self.cellItems[i] = info
                     }
-                    self.tableView.reloadData()
-                    
-                } catch let jsonError {
+                    if Thread.isMainThread {
+                        self.tableView.reloadData()
+                    }
+                } catch _ {
                     //print(jsonError.localizedDescription)
                 }
+
             }
         }
         task.resume()
     }
-    
-    
-
 }
