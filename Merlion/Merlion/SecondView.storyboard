@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvh-9n-jii">
-                                <rect key="frame" x="130" y="436" width="154" height="30"/>
+                                <rect key="frame" x="0.0" y="436" width="414" height="30"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Set Notification"/>
                                 <connections>
@@ -38,12 +38,14 @@
                             <constraint firstItem="euT-HC-Dvn" firstAttribute="top" secondItem="Dts-Dg-FLh" secondAttribute="top" constant="125" id="OiO-ha-FvC"/>
                             <constraint firstItem="euT-HC-Dvn" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" id="T9H-Ys-83X"/>
                             <constraint firstItem="Fvh-9n-jii" firstAttribute="top" secondItem="euT-HC-Dvn" secondAttribute="bottom" constant="75" id="Xo7-0h-A8c"/>
-                            <constraint firstItem="Fvh-9n-jii" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" constant="130" id="mjD-t6-anp"/>
-                            <constraint firstItem="Dts-Dg-FLh" firstAttribute="trailing" secondItem="Fvh-9n-jii" secondAttribute="trailing" constant="130" id="xFB-ak-W5i"/>
+                            <constraint firstItem="Fvh-9n-jii" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" id="mjD-t6-anp"/>
+                            <constraint firstItem="Dts-Dg-FLh" firstAttribute="trailing" secondItem="Fvh-9n-jii" secondAttribute="trailing" id="xFB-ak-W5i"/>
                             <constraint firstItem="euT-HC-Dvn" firstAttribute="trailing" secondItem="Dts-Dg-FLh" secondAttribute="trailing" id="zLQ-CB-aSm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dts-Dg-FLh"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="setting" image="SecondViewIcon" id="woz-Gh-RQQ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="picker" destination="euT-HC-Dvn" id="14o-Cc-lab"/>
                     </connections>
@@ -53,4 +55,7 @@
             <point key="canvasLocation" x="95.652173913043484" y="164.67391304347828"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SecondViewIcon" width="25" height="25"/>
+    </resources>
 </document>
