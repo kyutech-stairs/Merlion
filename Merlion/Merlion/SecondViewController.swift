@@ -20,6 +20,8 @@ class SecondViewController: UIViewController {
         //setNotification()
     }
 
+
+
     //MARK: - Actions
     @IBAction func tappedButton(_ sender: Any) {
         //setNotification()
@@ -55,5 +57,5 @@ class SecondViewController: UIViewController {
             }
         }
     }
-}
 
+}
