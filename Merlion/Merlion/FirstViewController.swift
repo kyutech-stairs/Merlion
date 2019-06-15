@@ -15,17 +15,13 @@ class FirstViewController: UITableViewController {
 
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     //var items: [JSON] = []
-    var cellItems = NSMutableArray()
-    let cellNum = 10
-    var selectedInfo : String?
+    
+    var weatherData: [[String: String?]] = [] // 天気データを入れるプロパティを定義
 
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "天気一覧"
-
-        //debug
-        print("new items")
         let id = "1861835" // 飯塚市のID
 
         getData(cityID: id)
@@ -33,7 +29,22 @@ class FirstViewController: UITableViewController {
         
         table.frame = view.frame // tableの大きさをviewの大きさに合わせる
         view.addSubview(table) // viewにtableを合わせる
+        table.dataSource = self
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weatherData.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        let weather = weatherData[indexPath.row]
+        cell.textLabel?.text = weather["description"]!
+        cell.detailTextLabel?.text = weather["date"]!
+        return cell
+    }
+    
+    
 
     //MARK: - private functions
     //MARK: - 天気予報を取得
@@ -41,21 +52,25 @@ class FirstViewController: UITableViewController {
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
-                //print(response.result.value as Any) // 全取得
+                //print(response.result.value as Any) // データ全取得.responseのresultプロパティのvalueプロパティをコンソールに出力
                 guard let object = response.result.value else {
                     return
                 }
                 
-                
-                let json = JSON(object)
-                //デバッグ
-                print(json["list"][2]["weather"][0]["description"].string as Any)
-                let dataNum: Int = json["list"].count
-                print(dataNum)
+                let json = JSON(object) // JSON型
+                let dataNum: Int = json["list"].count // listのデータ数をカウント
+                print(dataNum) // listのデータ数表示
                 
                 for i in 0 ..< dataNum {
-                    print(json["list"][i]["weather"][0]["description"].string as Any)
+                    //print(json["list"][i]["dt_txt"].string as Any)
+                    //print(json["list"][i]["weather"][0]["description"].string as Any)
+                    let weatherData: [String: String?] = [
+                        "date": json["list"][i]["dt_txt"].string,
+                        "description": json["list"][i]["weather"][0]["description"].string
+                    ]
+                    self.weatherData.append(weatherData)
                 }
+                self.table.reloadData()
                 
                 /*
                 json.forEach { (_, json) in
