@@ -11,11 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 class FirstViewController: UITableViewController {
-
-    @IBOutlet private weak var label: UILabel!
+    let table = UITableView() // プロパティにtableを追加
 
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
-    var items: [JSON] = []
+    //var items: [JSON] = []
     var cellItems = NSMutableArray()
     let cellNum = 10
     var selectedInfo : String?
@@ -23,13 +22,17 @@ class FirstViewController: UITableViewController {
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "天気一覧"
 
         //debug
         print("new items")
         let id = "1861835" // 飯塚市のID
 
         getData(cityID: id)
-        makeTableData()
+        //makeTableData()
+        
+        table.frame = view.frame // tableの大きさをviewの大きさに合わせる
+        view.addSubview(table) // viewにtableを合わせる
     }
 
     //MARK: - private functions
@@ -38,10 +41,23 @@ class FirstViewController: UITableViewController {
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
-                print(response.result.value as Any) // テスト表示
+                guard let object = response.result.value else {
+                    return
+                }
+                
+                let json = JSON(object)
+                json.forEach { (_, json) in
+                    print(json[weather.description].string)
+                }
             }
         }
     }
+    
+    
+    
+    
+    
+    /*
     
     // セクション数を設定
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,4 +107,6 @@ class FirstViewController: UITableViewController {
         }
         task.resume()
     }
+     */
+    
 }
