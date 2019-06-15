@@ -41,14 +41,28 @@ class FirstViewController: UITableViewController {
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
+                //print(response.result.value as Any) // 全取得
                 guard let object = response.result.value else {
                     return
                 }
                 
+                
                 let json = JSON(object)
-                json.forEach { (_, json) in
-                    print(json[weather.description].string)
+                //デバッグ
+                print(json["list"][2]["weather"][0]["description"].string as Any)
+                let dataNum: Int = json["list"].count
+                print(dataNum)
+                
+                for i in 0 ..< dataNum {
+                    print(json["list"][i]["weather"][0]["description"].string as Any)
                 }
+                
+                /*
+                json.forEach { (_, json) in
+                    print(json["list"][2]["weather"][0]["description"].string as Any)
+                    //print(json["list"][0]["weather"][0]["description"].string as Any)
+                }
+                */
             }
         }
     }
@@ -58,16 +72,6 @@ class FirstViewController: UITableViewController {
     
     
     /*
-    
-    // セクション数を設定
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    // 1セクションあたりの行数を設定
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cellNum
-    }
     
     // cellにテスト表示を突っ込む
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
