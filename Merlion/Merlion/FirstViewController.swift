@@ -10,33 +10,29 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class FirstViewController: UITableViewController {
+class FirstViewController: UIViewController, UITableViewDataSource {
     let table = UITableView() // プロパティにtableを追加
-
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
-    //var items: [JSON] = []
-    
     var weatherData: [[String: String?]] = [] // 天気データを入れるプロパティを定義
 
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "天気一覧"
+        title = "天気予報"
         let id = "1861835" // 飯塚市のID
 
         getData(cityID: id)
-        //makeTableData()
         
         table.frame = view.frame // tableの大きさをviewの大きさに合わせる
         view.addSubview(table) // viewにtableを合わせる
         table.dataSource = self
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weatherData.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let weather = weatherData[indexPath.row]
         cell.textLabel?.text = weather["description"]!
@@ -52,7 +48,7 @@ class FirstViewController: UITableViewController {
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
-                //print(response.result.value as Any) // データ全取得.responseのresultプロパティのvalueプロパティをコンソールに出力
+                print(response.result.value as Any) // データ全取得.responseのresultプロパティのvalueプロパティをコンソールに出力
                 guard let object = response.result.value else {
                     return
                 }
@@ -71,13 +67,6 @@ class FirstViewController: UITableViewController {
                     self.weatherData.append(weatherData)
                 }
                 self.table.reloadData()
-                
-                /*
-                json.forEach { (_, json) in
-                    print(json["list"][2]["weather"][0]["description"].string as Any)
-                    //print(json["list"][0]["weather"][0]["description"].string as Any)
-                }
-                */
             }
         }
     }
