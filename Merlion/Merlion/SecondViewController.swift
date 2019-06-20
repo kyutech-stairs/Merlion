@@ -18,6 +18,8 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
     }
 
+
+
     //MARK: - Actions
     @IBAction func tappedButton(_ sender: Any) {
         print("notification is fire")
@@ -51,5 +53,5 @@ class SecondViewController: UIViewController {
             }
         }
     }
-}
 
+}
