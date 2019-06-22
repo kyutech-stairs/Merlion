@@ -32,7 +32,13 @@
                             <outlet property="delegate" destination="Rag-Jv-E7I" id="gRt-ID-fL5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="VZw-QJ-JmK"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="VZw-QJ-JmK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Ige-VL-Civ">
+                            <connections>
+                                <action selector="reloadButton:" destination="Rag-Jv-E7I" id="g8n-Ez-sk9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1k-q0-Agh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

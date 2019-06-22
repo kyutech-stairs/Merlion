@@ -21,7 +21,13 @@ class FirstViewController: UITableViewController {
         title = "weather forecast"
         let id = "1861835" // 飯塚市のID
 
+        print(id)
         getData(cityID: id)
+    }
+    
+    // MARK: - 更新
+    @IBAction func reloadButton(_ sender: Any) {
+        viewDidLoad()
     }
     
     // MARK: - セルの数を取得
