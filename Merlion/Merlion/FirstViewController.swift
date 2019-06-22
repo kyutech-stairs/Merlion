@@ -18,7 +18,7 @@ class FirstViewController: UIViewController, UITableViewDataSource {
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "天気予報"
+        title = "weather forecast"
         let id = "1861835" // 飯塚市のID
 
         getData(cityID: id)
@@ -48,7 +48,7 @@ class FirstViewController: UIViewController, UITableViewDataSource {
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
-                print(response.result.value as Any) // データ全取得.responseのresultプロパティのvalueプロパティをコンソールに出力
+                //print(response.result.value as Any) // データ全取得.responseのresultプロパティのvalueプロパティをコンソールに出力
                 guard let object = response.result.value else {
                     return
                 }
@@ -58,8 +58,6 @@ class FirstViewController: UIViewController, UITableViewDataSource {
                 print(dataNum) // listのデータ数表示
                 
                 for i in 0 ..< dataNum {
-                    //print(json["list"][i]["dt_txt"].string as Any)
-                    //print(json["list"][i]["weather"][0]["description"].string as Any)
                     let weatherData: [String: String?] = [
                         "date": json["list"][i]["dt_txt"].string,
                         "description": json["list"][i]["weather"][0]["description"].string
@@ -76,7 +74,6 @@ class FirstViewController: UIViewController, UITableViewDataSource {
     
     
     /*
-    
     // cellにテスト表示を突っ込む
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
