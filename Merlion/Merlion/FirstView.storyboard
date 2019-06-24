@@ -41,7 +41,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="vIV-j7-oqs" kind="show" identifier="Segue" id="Hpn-NT-4hV"/>
+                        <segue destination="vIV-j7-oqs" kind="show" identifier="toDetail" id="Hpn-NT-4hV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1k-q0-Agh" userLabel="First Responder" sceneMemberID="firstResponder"/>
