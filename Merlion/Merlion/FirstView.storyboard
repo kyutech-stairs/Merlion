@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,10 +40,54 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vIV-j7-oqs" kind="show" identifier="Segue" id="Hpn-NT-4hV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1k-q0-Agh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1210" y="32"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="F8i-su-taD">
+            <objects>
+                <viewController id="vIV-j7-oqs" customClass="DetailViewController" customModule="Merlion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s8z-4r-gB9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5M-fb-QKz">
+                                <rect key="frame" x="90" y="288" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysy-rU-H6P">
+                                <rect key="frame" x="90" y="379" width="234" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ysy-rU-H6P" firstAttribute="top" secondItem="j5M-fb-QKz" secondAttribute="bottom" constant="70" id="I5l-s2-fv7"/>
+                            <constraint firstItem="j5M-fb-QKz" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="90" id="Wyi-79-AC3"/>
+                            <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="Ysy-rU-H6P" secondAttribute="trailing" constant="90" id="d57-LV-FaF"/>
+                            <constraint firstItem="j5M-fb-QKz" firstAttribute="top" secondItem="dM7-NE-kBM" secondAttribute="top" constant="200" id="mDp-OQ-aQX"/>
+                            <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="j5M-fb-QKz" secondAttribute="trailing" constant="90" id="o7E-75-iqS"/>
+                            <constraint firstItem="Ysy-rU-H6P" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="90" id="zp1-9y-Nn8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dM7-NE-kBM"/>
+                    </view>
+                    <connections>
+                        <outlet property="date" destination="Ysy-rU-H6P" id="HPc-RT-ut7"/>
+                        <outlet property="weather" destination="j5M-fb-QKz" id="qkz-eR-PGw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihP-XT-qZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2107.2463768115945" y="30.803571428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F7f-1u-h7k">

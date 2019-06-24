@@ -14,6 +14,9 @@ class FirstViewController: UITableViewController {
     
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     var weatherData: [[String: String?]] = [] // 天気データを入れるプロパティを定義
+    
+    var giveWeather: String = ""
+    var giveDate: String = ""
 
     // MARK: - override functions
     override func viewDidLoad() {
@@ -61,8 +64,8 @@ class FirstViewController: UITableViewController {
                 
                 for i in 0 ..< dataNum { // weatherDataに天気データを格納
                     let weatherData: [String: String?] = [
-                        "date": json["list"][i]["dt_txt"].string,
-                        "description": json["list"][i]["weather"][0]["description"].string
+                        "description": json["list"][i]["weather"][0]["description"].string,
+                        "date": json["list"][i]["dt_txt"].string
                     ]
                     self.weatherData.append(weatherData)
                 }
@@ -70,4 +73,28 @@ class FirstViewController: UITableViewController {
             }
         }
     }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let weather = weatherData[indexPath.row]
+        giveWeather = weather["description"]!!
+        giveDate = weather["date"]!!
+        performSegue(withIdentifier: "Segue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier != nil else {
+            return
+        }
+        if segue.identifier == "Segue" {
+            let vc = segue.destination as! DetailViewController
+            vc.receiveWeather = giveWeather
+            vc.receiveDate = giveDate
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 }
