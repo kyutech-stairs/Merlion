@@ -18,19 +18,19 @@ class FirstViewController: UITableViewController {
     var giveWeather: String = "" // segue時に渡す変数
     var giveDate: String = "" // segue時に渡す変数
 
+    
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "weather forecast"
         let id = "1861835" // 飯塚市のID
-
-        print(id)
         getData(cityID: id)
     }
     
     // MARK: - 更新
     @IBAction func reloadButton(_ sender: Any) {
-        viewDidLoad()
+        let id2 = "6455259" // パリのID
+        getData(cityID: id2)
     }
     
     // MARK: - セルの数を取得
@@ -49,10 +49,11 @@ class FirstViewController: UITableViewController {
     
     //MARK: - 天気予報を取得
     private func getData(cityID: String) {
+        weatherData = [] // 初期化
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
-                //print(response.result.value as Any) // データ全取得.responseのresultプロパティのvalueプロパティをコンソールに出力
+                //print(response.result.value as Any)
                 guard let object = response.result.value else {
                     return
                 }
