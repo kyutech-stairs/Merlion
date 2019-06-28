@@ -31,6 +31,11 @@ func setNotification(dateUnix: TimeInterval){
     //トリガーの設定
     let formatter = DateFormatter()
     var fireDate = DateComponents()
+    fireDate.calendar = Calendar.current
+    formatter.dateFormat = "MM"
+    fireDate.month = Int(formatter.string(from: date))
+    formatter.dateFormat = "dd"
+    fireDate.day = Int(formatter.string(from: date))
     formatter.dateFormat = "HH"
     fireDate.hour = Int(formatter.string(from: date))
     formatter.dateFormat = "mm"
