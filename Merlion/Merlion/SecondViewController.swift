@@ -13,9 +13,13 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var picker: UIDatePicker!
 
+    let debugDate: TimeInterval = 1561727300
+
     //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setNotification(dateUnix: debugDate)
     }
 
     //MARK: - Actions
