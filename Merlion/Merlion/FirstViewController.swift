@@ -73,11 +73,12 @@ class FirstViewController: UITableViewController {
                     
                     if weatherData["main"] == "Rain" {
                         self.unixTime += [json["list"][i]["dt"].int!]
+                        setNotification(dateUnix: TimeInterval(json["list"][i]["dt"].int!))
                     }
                 }
                 self.tableView.reloadData() // 描画処理
-                print(self.unixTime)
-                print(self.weatherData)
+                //print(self.unixTime)
+                //print(self.weatherData)
             }
         }
     }

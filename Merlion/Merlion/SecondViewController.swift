@@ -13,19 +13,17 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var picker: UIDatePicker!
 
+    let debugDate: TimeInterval = 1561727300
+
     //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //setNotification()
+        setNotification(dateUnix: debugDate)
     }
-
-
 
     //MARK: - Actions
     @IBAction func tappedButton(_ sender: Any) {
-        //setNotification()
-
         print("notification is fire")
 
         //通知内容を設定

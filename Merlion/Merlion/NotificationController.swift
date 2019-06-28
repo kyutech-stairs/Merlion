@@ -13,7 +13,8 @@ import Foundation
 import UserNotifications
 
 //MARK: - 通知の作成
-func setNotification(){
+func setNotification(dateUnix: TimeInterval){
+    let date = Date(timeIntervalSince1970: dateUnix)
     //通知許可ダイアログの表示(最初に実行)
 //    let center = UNUserNotificationCenter.current()
 //    center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
@@ -22,24 +23,24 @@ func setNotification(){
 
     //通知内容の設定
     let content = UNMutableNotificationContent()
-    content.title = "Title"
-    content.subtitle = "subtitle"
-    content.body = "Message"
+    content.title = "雨アラート"
+    content.subtitle = "Merlion"
+    content.body = "まもなく雨が降りそうです！"
     content.sound = UNNotificationSound.default
 
     //トリガーの設定
-//    let formatter = DateFormatter()
-//    var fireDate = DateComponents()
-//    formatter.dateFormat = "HH"
-//    fireDate.hour = Int(formatter.string(from: Date()))
-//    formatter.dateFormat = "mm"
-//    fireDate.minute = Int(formatter.string(from: Date()))
-//    formatter.dateFormat = "ss"
-//    fireDate.second = Int(formatter.string(from: Date()))! + 5
-    let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: Double(10), repeats: true)
+    let formatter = DateFormatter()
+    var fireDate = DateComponents()
+    formatter.dateFormat = "HH"
+    fireDate.hour = Int(formatter.string(from: date))
+    formatter.dateFormat = "mm"
+    fireDate.minute = Int(formatter.string(from: date))
+    fireDate.second = 0
+//    let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: Double(10), repeats: true)
+    let trigger = UNCalendarNotificationTrigger.init(dateMatching: fireDate, repeats: false)
 
     //通知のリクエスト作成
-    let request = UNNotificationRequest(identifier: "Notification", content: content, trigger: trigger)
+    let request = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
 
     //通知の登録
     let center = UNUserNotificationCenter.current()
@@ -48,4 +49,6 @@ func setNotification(){
             print(error.localizedDescription)
         }
     }
+    
+    print(fireDate)
 }
