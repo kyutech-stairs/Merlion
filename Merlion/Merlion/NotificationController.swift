@@ -49,4 +49,6 @@ func setNotification(dateUnix: TimeInterval){
             print(error.localizedDescription)
         }
     }
+    
+    print(fireDate)
 }
