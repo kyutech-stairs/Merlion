@@ -13,7 +13,8 @@ import SwiftyJSON
 class FirstViewController: UITableViewController {
     
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
-    var weatherData: [[String: String?]] = [] // 天気データを入れるプロパティを定義
+    var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
+    var unixTime: [Int] = []
     
     var giveWeather: String = "" // segue時に渡す変数
     var giveDate: String = "" // segue時に渡す変数
@@ -42,8 +43,8 @@ class FirstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         let weather = weatherData[indexPath.row]
-        cell.textLabel?.text = weather["description"]!
-        cell.detailTextLabel?.text = weather["date"]!
+        cell.textLabel?.text = weather["description"]! as? String
+        cell.detailTextLabel?.text = weather["date"]! as? String
         return cell
     }
     
@@ -53,7 +54,7 @@ class FirstViewController: UITableViewController {
     
         if let APIKEY = KeyManager().getValue(key: "apiKey") as? String {
             Alamofire.request("http://api.openweathermap.org/data/2.5/forecast?id=\(cityID)&APPID=\(APIKEY)").responseJSON { response in
-                //print(response.result.value as Any)
+                print(response.result.value as Any) // 全データ表示
                 guard let object = response.result.value else {
                     return
                 }
@@ -64,21 +65,29 @@ class FirstViewController: UITableViewController {
                 
                 for i in 0 ..< dataNum { // weatherDataに天気データを格納
                     let weatherData: [String: String?] = [
+                        "main": json["list"][i]["weather"][0]["main"].string,
                         "description": json["list"][i]["weather"][0]["description"].string,
                         "date": json["list"][i]["dt_txt"].string
                     ]
                     self.weatherData.append(weatherData) // 配列に要素を追加
+                    
+                    if weatherData["main"] == "Rain" {
+                        self.unixTime += [json["list"][i]["dt"].int!]
+                        setNotification(dateUnix: TimeInterval(json["list"][i]["dt"].int!))
+                    }
                 }
                 self.tableView.reloadData() // 描画処理
+                //print(self.unixTime)
+                //print(self.weatherData)
             }
         }
     }
     
-    //MARK: - 任意のセルが押された時
+    //MARK: - 任意のセル選択時
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let weather = weatherData[indexPath.row] // 押されたセルのデータをweatherに格納
-        giveWeather = weather["description"]!!
-        giveDate = weather["date"]!!
+        giveWeather = weather["description"]!! as! String
+        giveDate = weather["date"]!! as! String
         performSegue(withIdentifier: "toDetail", sender: nil) // "Segue"を使った画面遷移を行う関数
     }
     
