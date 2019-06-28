@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A06B95522B3DCD9005723A4 /* apikey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A06B95422B3DCD9005723A4 /* apikey.plist */; };
+		8A06B95922C106B0005723A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06B95822C106B0005723A4 /* DetailViewController.swift */; };
 		8A84B5C622A9437F006A490A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84B5C522A9437F006A490A /* FirstViewController.swift */; };
 		FB3631C622AB9752006165AA /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3631C522AB9752006165AA /* NotificationController.swift */; };
 		FB75B72322AA97F20069D24C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72122AA97F20069D24C /* Alamofire.framework */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		8A06B95422B3DCD9005723A4 /* apikey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikey.plist; sourceTree = "<group>"; };
+		8A06B95822C106B0005723A4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8A84B5C522A9437F006A490A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		FB3631C522AB9752006165AA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		FB75B72122AA97F20069D24C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				FBDBBAE422A9340100F159EA /* AppDelegate.swift */,
 				8A84B5C522A9437F006A490A /* FirstViewController.swift */,
+				8A06B95822C106B0005723A4 /* DetailViewController.swift */,
 				FBDBBAE622A9340100F159EA /* SecondViewController.swift */,
 				FB3631C522AB9752006165AA /* NotificationController.swift */,
 				FB935A8722B3CF6E0096EE37 /* KeyManager.swift */,
@@ -233,6 +236,7 @@
 				FBDBBAED22A9340100F159EA /* Merlion.xcdatamodeld in Sources */,
 				8A84B5C622A9437F006A490A /* FirstViewController.swift in Sources */,
 				FB935A8822B3CF6E0096EE37 /* KeyManager.swift in Sources */,
+				8A06B95922C106B0005723A4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UV8T5ZKLG7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -391,6 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Kageken.Merlion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UV8T5ZKLG7;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -413,6 +420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Kageken.Merlion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
