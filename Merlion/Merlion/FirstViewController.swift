@@ -18,12 +18,16 @@ class FirstViewController: UITableViewController {
     
     var giveMain: String = "" // segue時に渡す変数
     var giveDate: String = "" // segue時に渡す変数
+    var giveSub: String = ""
 
     
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "weather forecast"
+//        let clearImage = UIImage(named: "Clear")
+//        weatherImage.image = clearImage
+        
         let id = "1861835" // 飯塚市のID
         getData(cityID: id)
     }
@@ -66,7 +70,7 @@ class FirstViewController: UITableViewController {
                 for i in 0 ..< dataNum { // weatherDataに天気データを格納
                     let weatherData: [String: String?] = [
                         "main": json["list"][i]["weather"][0]["main"].string,
-                        "description": json["list"][i]["weather"][0]["description"].string,
+                        "sub": json["list"][i]["weather"][0]["description"].string,
                         "date": json["list"][i]["dt_txt"].string
                     ]
                     self.weatherData.append(weatherData) // 配列に要素を追加
@@ -87,6 +91,7 @@ class FirstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let weather = weatherData[indexPath.row] // 押されたセルのデータをweatherに格納
         giveMain = weather["main"]!! as! String
+        giveSub = weather["sub"]!! as! String
         giveDate = weather["date"]!! as! String
         performSegue(withIdentifier: "toDetail", sender: nil) // "Segue"を使った画面遷移を行う関数
     }
@@ -99,6 +104,7 @@ class FirstViewController: UITableViewController {
         if segue.identifier == "toDetail" { // "toDetail"を検知した時
             let vc = segue.destination as! DetailViewController // 遷移先のViewControllerを設定
             vc.receiveMain = giveMain
+            vc.receiveSub = giveSub
             vc.receiveDate = giveDate
         }
     }
