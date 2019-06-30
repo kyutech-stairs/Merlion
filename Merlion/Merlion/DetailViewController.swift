@@ -10,16 +10,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var weather: UILabel!
+    @IBOutlet weak var main: UILabel!
     @IBOutlet weak var date: UILabel!
     
-    var receiveWeather: String = ""
+    var receiveMain: String = ""
     var receiveDate: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weather.text = receiveWeather
+        main.text = receiveMain
         date.text = receiveDate
     }
     
