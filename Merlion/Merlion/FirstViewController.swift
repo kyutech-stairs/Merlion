@@ -14,16 +14,17 @@ class FirstViewController: UITableViewController {
     
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
-    var unixTime: [Int] = []
+    var unixTime: [Int] = [] // UNIX時間
     
-    var giveWeather: String = "" // segue時に渡す変数
+    var giveMain: String = "" // segue時に渡す変数
     var giveDate: String = "" // segue時に渡す変数
-
+    var giveSub: String = ""
     
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "weather forecast"
+        
         let id = "1861835" // 飯塚市のID
         getData(cityID: id)
     }
@@ -42,8 +43,9 @@ class FirstViewController: UITableViewController {
     // MARK: - セルのカスタマイズ
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell.imageView?.image = UIImage(named: "Rain") // お天気マーク
         let weather = weatherData[indexPath.row]
-        cell.textLabel?.text = weather["description"]! as? String
+        cell.textLabel?.text = weather["main"]! as? String
         cell.detailTextLabel?.text = weather["date"]! as? String
         return cell
     }
@@ -66,7 +68,7 @@ class FirstViewController: UITableViewController {
                 for i in 0 ..< dataNum { // weatherDataに天気データを格納
                     let weatherData: [String: String?] = [
                         "main": json["list"][i]["weather"][0]["main"].string,
-                        "description": json["list"][i]["weather"][0]["description"].string,
+                        "sub": json["list"][i]["weather"][0]["description"].string,
                         "date": json["list"][i]["dt_txt"].string
                     ]
                     self.weatherData.append(weatherData) // 配列に要素を追加
@@ -77,8 +79,6 @@ class FirstViewController: UITableViewController {
                     }
                 }
                 self.tableView.reloadData() // 描画処理
-                //print(self.unixTime)
-                //print(self.weatherData)
             }
         }
     }
@@ -86,7 +86,8 @@ class FirstViewController: UITableViewController {
     //MARK: - 任意のセル選択時
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let weather = weatherData[indexPath.row] // 押されたセルのデータをweatherに格納
-        giveWeather = weather["description"]!! as! String
+        giveMain = weather["main"]!! as! String
+        giveSub = weather["sub"]!! as! String
         giveDate = weather["date"]!! as! String
         performSegue(withIdentifier: "toDetail", sender: nil) // "Segue"を使った画面遷移を行う関数
     }
@@ -98,7 +99,8 @@ class FirstViewController: UITableViewController {
         }
         if segue.identifier == "toDetail" { // "toDetail"を検知した時
             let vc = segue.destination as! DetailViewController // 遷移先のViewControllerを設定
-            vc.receiveWeather = giveWeather
+            vc.receiveMain = giveMain
+            vc.receiveSub = giveSub
             vc.receiveDate = giveDate
         }
     }
