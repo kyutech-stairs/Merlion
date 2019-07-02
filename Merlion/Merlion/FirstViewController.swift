@@ -14,19 +14,16 @@ class FirstViewController: UITableViewController {
     
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
-    var unixTime: [Int] = []
+    var unixTime: [Int] = [] // UNIX時間
     
     var giveMain: String = "" // segue時に渡す変数
     var giveDate: String = "" // segue時に渡す変数
     var giveSub: String = ""
-
     
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "weather forecast"
-//        let clearImage = UIImage(named: "Clear")
-//        weatherImage.image = clearImage
         
         let id = "1861835" // 飯塚市のID
         getData(cityID: id)
@@ -46,6 +43,7 @@ class FirstViewController: UITableViewController {
     // MARK: - セルのカスタマイズ
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell.imageView?.image = UIImage(named: "Rain") // お天気マーク
         let weather = weatherData[indexPath.row]
         cell.textLabel?.text = weather["main"]! as? String
         cell.detailTextLabel?.text = weather["date"]! as? String
@@ -81,8 +79,6 @@ class FirstViewController: UITableViewController {
                     }
                 }
                 self.tableView.reloadData() // 描画処理
-                //print(self.unixTime)
-                //print(self.weatherData)
             }
         }
     }
