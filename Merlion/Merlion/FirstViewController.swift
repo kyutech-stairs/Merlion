@@ -43,8 +43,19 @@ class FirstViewController: UITableViewController {
     // MARK: - セルのカスタマイズ
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.imageView?.image = UIImage(named: "Rain") // お天気マーク
+        //cell.imageView?.image = UIImage(named: "Rain") // お天気マーク
         let weather = weatherData[indexPath.row]
+        let weatherName = weather["main"]! as! String
+        switch weatherName {
+        case "Rain":
+            cell.imageView?.image = UIImage(named: "Rain")
+        case "Clear":
+            cell.imageView?.image = UIImage(named: "Clear")
+        case "Clouds":
+            cell.imageView?.image = UIImage(named: "Clouds")
+        default:
+            cell.imageView?.image = UIImage(named: "Unknown")
+        }
         cell.textLabel?.text = weather["main"]! as? String
         cell.detailTextLabel?.text = weather["date"]! as? String
         return cell
