@@ -80,37 +80,60 @@
                                 <rect key="frame" x="140" y="185" width="134" height="130"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pq3-Aq-BYA">
-                                <rect key="frame" x="20" y="543" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="40" y="628" width="39.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-jH-egB">
+                                <rect key="frame" x="330" y="628" width="39.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Temp" translatesAutoresizingMaskIntoConstraints="NO" id="txN-Vd-NuH">
+                                <rect key="frame" x="50" y="551" width="25" height="50"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Humidity" translatesAutoresizingMaskIntoConstraints="NO" id="8jc-ii-pCA">
+                                <rect key="frame" x="182" y="551" width="50" height="50"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Wind" translatesAutoresizingMaskIntoConstraints="NO" id="KNK-xb-aYq">
+                                <rect key="frame" x="339" y="551" width="25" height="50"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkf-QH-gCf">
-                                <rect key="frame" x="20" y="628" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="185" y="629" width="39.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="hkf-QH-gCf" secondAttribute="trailing" constant="20" id="0R5-ZY-MuM"/>
-                            <constraint firstItem="Pq3-Aq-BYA" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="20" id="5No-CU-BFj"/>
+                            <constraint firstItem="Jvc-jH-egB" firstAttribute="top" secondItem="KNK-xb-aYq" secondAttribute="bottom" constant="8" id="14k-Pa-X7r"/>
+                            <constraint firstItem="KNK-xb-aYq" firstAttribute="top" secondItem="Ysy-rU-H6P" secondAttribute="bottom" constant="80" id="1gG-ay-a12"/>
+                            <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="KNK-xb-aYq" secondAttribute="trailing" constant="50" id="5oI-Aj-Frk"/>
+                            <constraint firstItem="8jc-ii-pCA" firstAttribute="top" secondItem="Ysy-rU-H6P" secondAttribute="bottom" constant="80" id="5ov-Kb-qrF"/>
                             <constraint firstItem="Ysy-rU-H6P" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="20" id="5zb-Wl-fkv"/>
+                            <constraint firstItem="hkf-QH-gCf" firstAttribute="top" secondItem="8jc-ii-pCA" secondAttribute="bottom" constant="8" id="6Jk-cH-gpX"/>
+                            <constraint firstItem="8jc-ii-pCA" firstAttribute="leading" secondItem="txN-Vd-NuH" secondAttribute="trailing" constant="50" id="8Lr-cf-T7A"/>
                             <constraint firstItem="j5M-fb-QKz" firstAttribute="top" secondItem="YN6-If-fbm" secondAttribute="bottom" constant="50" id="9IT-Cs-y8O"/>
                             <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="j5M-fb-QKz" secondAttribute="trailing" constant="20" id="BGk-9I-IYE"/>
+                            <constraint firstItem="txN-Vd-NuH" firstAttribute="top" secondItem="Ysy-rU-H6P" secondAttribute="bottom" constant="80" id="JGm-M4-8gv"/>
                             <constraint firstItem="YN6-If-fbm" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="140" id="LpR-s3-AC8"/>
-                            <constraint firstItem="Pq3-Aq-BYA" firstAttribute="top" secondItem="Ysy-rU-H6P" secondAttribute="bottom" constant="80" id="MNN-PN-9Mb"/>
                             <constraint firstItem="YN6-If-fbm" firstAttribute="top" secondItem="jF9-nf-TNn" secondAttribute="bottom" constant="60" id="Mua-Gs-4uw"/>
-                            <constraint firstItem="hkf-QH-gCf" firstAttribute="top" secondItem="Pq3-Aq-BYA" secondAttribute="bottom" constant="15" id="UCl-xg-bEh"/>
-                            <constraint firstItem="hkf-QH-gCf" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="20" id="WyN-sd-kXU"/>
                             <constraint firstItem="j5M-fb-QKz" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="20" id="YGU-a5-mdH"/>
-                            <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="Pq3-Aq-BYA" secondAttribute="trailing" constant="20" id="c6Y-68-aMK"/>
+                            <constraint firstItem="hkf-QH-gCf" firstAttribute="leading" secondItem="Pq3-Aq-BYA" secondAttribute="trailing" constant="40" id="baY-z8-AeF"/>
                             <constraint firstItem="jF9-nf-TNn" firstAttribute="top" secondItem="dM7-NE-kBM" secondAttribute="top" constant="20" id="cgf-wU-ZuZ"/>
+                            <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="Jvc-jH-egB" secondAttribute="trailing" constant="45" id="gnw-Ru-4J3"/>
+                            <constraint firstItem="Pq3-Aq-BYA" firstAttribute="top" secondItem="txN-Vd-NuH" secondAttribute="bottom" constant="8" id="iqE-50-dVk"/>
                             <constraint firstItem="Ysy-rU-H6P" firstAttribute="top" secondItem="j5M-fb-QKz" secondAttribute="bottom" constant="30" id="jFq-4k-UNK"/>
                             <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="YN6-If-fbm" secondAttribute="trailing" constant="140" id="n70-iJ-VgK"/>
+                            <constraint firstItem="KNK-xb-aYq" firstAttribute="leading" secondItem="8jc-ii-pCA" secondAttribute="trailing" constant="50" id="q99-IL-PO6"/>
+                            <constraint firstItem="Pq3-Aq-BYA" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="40" id="rF1-XF-vYu"/>
                             <constraint firstItem="jF9-nf-TNn" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="20" id="t2N-jY-Nyc"/>
                             <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="Ysy-rU-H6P" secondAttribute="trailing" constant="20" id="vaE-n1-VZ9"/>
+                            <constraint firstItem="txN-Vd-NuH" firstAttribute="leading" secondItem="dM7-NE-kBM" secondAttribute="leading" constant="50" id="vsy-hg-g8o"/>
+                            <constraint firstItem="Jvc-jH-egB" firstAttribute="leading" secondItem="hkf-QH-gCf" secondAttribute="trailing" constant="40" id="wvs-LQ-NWL"/>
                             <constraint firstItem="dM7-NE-kBM" firstAttribute="trailing" secondItem="jF9-nf-TNn" secondAttribute="trailing" constant="20" id="ztv-ma-BZK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dM7-NE-kBM"/>
@@ -119,9 +142,13 @@
                         <outlet property="date" destination="jF9-nf-TNn" id="d4E-v0-m8t"/>
                         <outlet property="humidity" destination="hkf-QH-gCf" id="vrm-Mw-t2V"/>
                         <outlet property="image" destination="YN6-If-fbm" id="PSo-qJ-ojf"/>
+                        <outlet property="imageHumidity" destination="8jc-ii-pCA" id="wpE-O8-xFX"/>
+                        <outlet property="imageTemp" destination="txN-Vd-NuH" id="oXE-GL-J7A"/>
+                        <outlet property="imageWind" destination="KNK-xb-aYq" id="1qO-Nb-sIr"/>
                         <outlet property="main" destination="j5M-fb-QKz" id="QLj-Hr-xtH"/>
                         <outlet property="sub" destination="Ysy-rU-H6P" id="9sW-Lb-i2T"/>
                         <outlet property="temp" destination="Pq3-Aq-BYA" id="DNR-0r-Z2r"/>
+                        <outlet property="wind" destination="Jvc-jH-egB" id="oLe-1G-Eim"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihP-XT-qZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,5 +174,8 @@
     </scenes>
     <resources>
         <image name="FirstViewIcon" width="25" height="25"/>
+        <image name="Humidity" width="25" height="25"/>
+        <image name="Temp" width="25" height="25"/>
+        <image name="Wind" width="25" height="25"/>
     </resources>
 </document>
