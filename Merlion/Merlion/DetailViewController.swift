@@ -30,8 +30,8 @@ class DetailViewController: UIViewController {
         main.text = receiveMain
         sub.text = receiveSub
         date.text = receiveDate
-        humidity.text = String(receiveHumidity)
-        temp.text = String(receiveTemp)
+        temp.text = String(format: "%.f度", receiveTemp)
+        humidity.text = String(format: "%d度", receiveHumidity)
         image.image = receiveImage
         
     }

@@ -16,12 +16,12 @@ class FirstViewController: UITableViewController {
     var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
     var unixTime: [Int] = [] // UNIX時間
     
-    var giveMain: String = ""
-    var giveDate: String = ""
-    var giveSub: String = ""
-    var giveTemp: Double = 0.0
-    var giveHumidity: Int = 0
-    var giveImage: UIImage!
+    var giveMain: String = ""   // 天気
+    var giveDate: String = ""   // 日時
+    var giveSub: String = ""    // 詳細天気
+    var giveTemp: Double = 0.0  // 気温
+    var giveHumidity: Int = 0   // 湿度
+    var giveImage: UIImage!     // 天気イメージ
     
     // MARK: - override functions
     override func viewDidLoad() {
@@ -106,7 +106,8 @@ class FirstViewController: UITableViewController {
         giveSub = weather["sub"]!! as! String
         giveDate = weather["date"]!! as! String
         giveTemp = weather["temp"]!! as! Double
-        giveHumidity = weather["humidity"]!! as! Int
+        giveTemp = giveTemp - 273.15
+        giveHumidity = weather["humidity"] as! Int
         switch giveMain {
             case "Rain":
             giveImage = UIImage(named: "Rain")
