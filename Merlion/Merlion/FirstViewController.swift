@@ -16,9 +16,12 @@ class FirstViewController: UITableViewController {
     var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
     var unixTime: [Int] = [] // UNIX時間
     
-    var giveMain: String = "" // segue時に渡す変数
-    var giveDate: String = "" // segue時に渡す変数
-    var giveSub: String = ""
+    var giveMain: String = "" // segue時に渡す
+    var giveDate: String = "" // segue時に渡す
+    var giveSub: String = "" // segue時に渡す
+    //var giveTemp: String = "" // segue時に返す
+    var giveTemp: Double = 0.0 // segue時に返す
+    var giveImage: UIImage! // segue時に渡す
     
     // MARK: - override functions
     override func viewDidLoad() {
@@ -71,23 +74,25 @@ class FirstViewController: UITableViewController {
                 guard let object = response.result.value else {
                     return
                 }
-                
                 let json = JSON(object) // JSON型
                 let dataNum: Int = json["list"].count // listのデータ数をカウントしてdataNumに格納
                 print(dataNum) // listのデータ数表示
                 
                 for i in 0 ..< dataNum { // weatherDataに天気データを格納
-                    let weatherData: [String: String?] = [
+                    let weatherData: [String: Any?] = [
                         "main": json["list"][i]["weather"][0]["main"].string,
                         "sub": json["list"][i]["weather"][0]["description"].string,
-                        "date": json["list"][i]["dt_txt"].string
-                    ]
+                        "date": json["list"][i]["dt_txt"].string,
+                        "temp": json["list"][i]["main"]["temp"].double
+                        //"humidity": json["list"][i]["main"][0]["humidity"].string
+                        ]
+                    print(weatherData)
                     self.weatherData.append(weatherData) // 配列に要素を追加
                     
-                    if weatherData["main"] == "Rain" {
-                        self.unixTime += [json["list"][i]["dt"].int!]
-                        setNotification(dateUnix: TimeInterval(json["list"][i]["dt"].int!))
-                    }
+//                    if weatherData["main"] == "Rain" {
+//                        self.unixTime += [json["list"][i]["dt"].int!]
+//                        setNotification(dateUnix: TimeInterval(json["list"][i]["dt"].int!))
+//                    }
                 }
                 self.tableView.reloadData() // 描画処理
             }
@@ -100,6 +105,17 @@ class FirstViewController: UITableViewController {
         giveMain = weather["main"]!! as! String
         giveSub = weather["sub"]!! as! String
         giveDate = weather["date"]!! as! String
+        giveTemp = weather["temp"]!! as! Double
+        switch giveMain {
+            case "Rain":
+            giveImage = UIImage(named: "Rain")
+            case "Clear":
+            giveImage = UIImage(named: "Clear")
+            case "Clouds":
+            giveImage = UIImage(named: "Clouds")
+            default:
+            giveImage = UIImage(named: "Unknown")
+        }
         performSegue(withIdentifier: "toDetail", sender: nil) // "Segue"を使った画面遷移を行う関数
     }
     
@@ -113,6 +129,9 @@ class FirstViewController: UITableViewController {
             vc.receiveMain = giveMain
             vc.receiveSub = giveSub
             vc.receiveDate = giveDate
+            vc.receiveTemp = giveTemp
+            //vc.receiveHumidity = giveHumidity
+            vc.receiveImage = giveImage
         }
     }
     
