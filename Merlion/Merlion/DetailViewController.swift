@@ -16,12 +16,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var wind: UILabel!
+    
+    @IBOutlet weak var imageTemp: UIImageView!
+    @IBOutlet weak var imageHumidity: UIImageView!
+    @IBOutlet weak var imageWind: UIImageView!
     
     var receiveMain: String = ""
     var receiveDate: String = ""
     var receiveSub: String = ""
     var receiveTemp: Double = 0.0
     var receiveHumidity: Int = 0
+    var receiveWind: Double = 0.0
     var receiveImage: UIImage!
     
     override func viewDidLoad() {
@@ -30,8 +36,9 @@ class DetailViewController: UIViewController {
         main.text = receiveMain
         sub.text = receiveSub
         date.text = receiveDate
-        humidity.text = String(receiveHumidity)
-        temp.text = String(receiveTemp)
+        temp.text = String(format: "%.f℃", receiveTemp)
+        humidity.text = String(format: "%d％", receiveHumidity)
+        wind.text = String(format: "%.1fm", receiveWind)
         image.image = receiveImage
         
     }
