@@ -9,51 +9,42 @@
 import UIKit
 import UserNotifications
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    @IBOutlet weak var picker: UIDatePicker!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var cityPicker: UIPickerView!
 
-    let debugDate: TimeInterval = 1561727300
-
+    //cityList = [["city name", "cist id"]]
+    let cityList = [["札幌", "2128295"], ["仙台", "2111149"], ["新潟", "1855429"], ["東京", "1850147"], ["名古屋", "1856057"], ["京都", "1857910"], ["大阪", "1853909"], ["松江", "1857550"], ["山口", "1848681"], ["飯塚", "1861835"], ["沖縄", "1894616"]]
+    
     //MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNotification(dateUnix: debugDate)
+        cityPicker.dataSource = self
+        cityPicker.delegate = self
     }
 
-    //MARK: - Actions
-    @IBAction func tappedButton(_ sender: Any) {
-        print("notification is fire")
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
-        //通知内容を設定
-        let content = UNMutableNotificationContent()
-        content.title = "Title"
-        content.subtitle = "subtitle"
-        content.body = "message"
-        content.sound = UNNotificationSound.default
+    //MARK: - Protocols
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
-        //通知するタイミングを設定
-        var fireDate = DateComponents()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH"
-        fireDate.hour = Int(formatter.string(from: picker.date))
-        formatter.dateFormat = "mm"
-        fireDate.minute = Int(formatter.string(from: picker.date))
-        fireDate.second = 0
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return cityList.count
+    }
 
-        //発火!!!!!
-        //let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 10.0, repeats: false)
-        let trigger = UNCalendarNotificationTrigger.init(dateMatching: fireDate, repeats: false)
-        let request = UNNotificationRequest(identifier:"notificationid", content: content, trigger: trigger)
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return cityList[row][0]
+    }
 
-        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
-        UNUserNotificationCenter.current().add(request){(error) in
-
-            if let error = error{
-                print(error.localizedDescription)
-            }
-        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.cityLabel.text = cityList[row][0]
+        cityName = cityList[row][0]
+        cityID = cityList[row][1]
     }
 
 }
