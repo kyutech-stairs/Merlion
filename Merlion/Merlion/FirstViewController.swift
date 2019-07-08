@@ -16,12 +16,13 @@ class FirstViewController: UITableViewController {
     var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
     var unixTime: [Int] = [] // UNIX時間
     
-    var giveMain: String = ""
-    var giveDate: String = ""
-    var giveSub: String = ""
-    var giveTemp: Double = 0.0
-    var giveHumidity: Int = 0
-    var giveImage: UIImage!
+    var giveMain: String = ""   // 天気
+    var giveDate: String = ""   // 日時
+    var giveSub: String = ""    // 詳細天気
+    var giveTemp: Double = 0.0  // 気温
+    var giveHumidity: Int = 0   // 湿度
+    var giveWind: Double = 0.0  // 風速
+    var giveImage: UIImage!     // 天気イメージ
     
     // MARK: - override functions
     override func viewDidLoad() {
@@ -84,7 +85,8 @@ class FirstViewController: UITableViewController {
                         "sub": json["list"][i]["weather"][0]["description"].string,
                         "date": json["list"][i]["dt_txt"].string,
                         "temp": json["list"][i]["main"]["temp"].double,
-                        "humidity": json["list"][i]["main"]["humidity"].int
+                        "humidity": json["list"][i]["main"]["humidity"].int,
+                        "wind": json["list"][i]["wind"]["speed"].double
                         ]
                     print(weatherData)
                     self.weatherData.append(weatherData) // 配列に要素を追加
@@ -105,8 +107,9 @@ class FirstViewController: UITableViewController {
         giveMain = weather["main"]!! as! String
         giveSub = weather["sub"]!! as! String
         giveDate = weather["date"]!! as! String
-        giveTemp = weather["temp"]!! as! Double
-        giveHumidity = weather["humidity"]!! as! Int
+        giveTemp = (weather["temp"]!! as! Double) - 273.15 // ケルビンから摂氏
+        giveHumidity = weather["humidity"] as! Int
+        giveWind = weather["wind"]!! as! Double
         switch giveMain {
             case "Rain":
             giveImage = UIImage(named: "Rain")
@@ -132,6 +135,7 @@ class FirstViewController: UITableViewController {
             vc.receiveDate = giveDate
             vc.receiveTemp = giveTemp
             vc.receiveHumidity = giveHumidity
+            vc.receiveWind = giveWind
             vc.receiveImage = giveImage
         }
     }
