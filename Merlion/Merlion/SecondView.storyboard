@@ -16,59 +16,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvh-9n-jii">
-                                <rect key="frame" x="0.0" y="460" width="414" height="29"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <state key="normal" title="Set Notification"/>
-                                <connections>
-                                    <action selector="tappedButton:" destination="Sq2-Qo-2Sh" eventType="touchUpInside" id="njT-CR-E4d"/>
-                                </connections>
-                            </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="euT-HC-Dvn">
-                                <rect key="frame" x="0.0" y="169" width="414" height="216"/>
-                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsT-M6-noX">
+                                <rect key="frame" x="105" y="194" width="204" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dve-EU-kY0">
+                                <rect key="frame" x="0.0" y="265" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="euT-HC-Dvn" firstAttribute="top" secondItem="Dts-Dg-FLh" secondAttribute="top" constant="125" id="OiO-ha-FvC"/>
-                            <constraint firstItem="euT-HC-Dvn" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" id="T9H-Ys-83X"/>
-                            <constraint firstItem="Fvh-9n-jii" firstAttribute="top" secondItem="euT-HC-Dvn" secondAttribute="bottom" constant="75" id="Xo7-0h-A8c"/>
-                            <constraint firstItem="Fvh-9n-jii" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" id="mjD-t6-anp"/>
-                            <constraint firstItem="Dts-Dg-FLh" firstAttribute="trailing" secondItem="Fvh-9n-jii" secondAttribute="trailing" id="xFB-ak-W5i"/>
-                            <constraint firstItem="euT-HC-Dvn" firstAttribute="trailing" secondItem="Dts-Dg-FLh" secondAttribute="trailing" id="zLQ-CB-aSm"/>
+                            <constraint firstItem="Dve-EU-kY0" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" id="5YF-zw-2iy"/>
+                            <constraint firstItem="UsT-M6-noX" firstAttribute="top" secondItem="Dts-Dg-FLh" secondAttribute="top" constant="150" id="BhX-qH-ZPh"/>
+                            <constraint firstItem="Dve-EU-kY0" firstAttribute="trailing" secondItem="Dts-Dg-FLh" secondAttribute="trailing" id="CmT-uC-4wY"/>
+                            <constraint firstItem="Dve-EU-kY0" firstAttribute="top" secondItem="UsT-M6-noX" secondAttribute="bottom" constant="50" id="R46-e4-Eiy"/>
+                            <constraint firstItem="UsT-M6-noX" firstAttribute="leading" secondItem="Dts-Dg-FLh" secondAttribute="leading" constant="105" id="WAc-uK-zMX"/>
+                            <constraint firstItem="Dts-Dg-FLh" firstAttribute="trailing" secondItem="UsT-M6-noX" secondAttribute="trailing" constant="105" id="sLP-Z0-7L4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dts-Dg-FLh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="setting" image="SecondViewIcon" id="woz-Gh-RQQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="picker" destination="euT-HC-Dvn" id="14o-Cc-lab"/>
+                        <outlet property="cityLabel" destination="UsT-M6-noX" id="c4Q-OS-lq8"/>
+                        <outlet property="cityPicker" destination="Dve-EU-kY0" id="wQs-ue-m2I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjo-2P-3ml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95.652173913043484" y="164.67391304347828"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="T4k-lL-Xpq">
-            <objects>
-                <viewController id="oxp-Tr-gw4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7GH-iW-NUJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dve-EU-kY0">
-                                <rect key="frame" x="0.0" y="259" width="414" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="cTm-Hy-K1e"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uYS-Id-h22" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1119" y="164"/>
+            <point key="canvasLocation" x="95.652173913043484" y="164.0625"/>
         </scene>
     </scenes>
     <resources>
