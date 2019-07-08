@@ -93,10 +93,10 @@ class FirstViewController: UITableViewController {
                     print(weatherData)
                     self.weatherData.append(weatherData) // 配列に要素を追加
                     
-//                    if weatherData["main"] == "Rain" {
-//                        self.unixTime += [json["list"][i]["dt"].int!]
-//                        setNotification(dateUnix: TimeInterval(json["list"][i]["dt"].int!))
-//                    }
+                    if (weatherData["main"] as? String) == "Rain" {
+                        self.unixTime += [json["list"][i]["dt"].int!]
+                        setNotification(dateUnix: TimeInterval(json["list"][i]["dt"].int!))
+                    }
                 }
                 self.tableView.reloadData() // 描画処理
             }
