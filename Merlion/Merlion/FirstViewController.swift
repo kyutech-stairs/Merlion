@@ -27,16 +27,18 @@ class FirstViewController: UITableViewController {
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "weather forecast"
+        //title = "weather forecast"
+        self.title = cityName
         
-        let id = "1861835" // 飯塚市のID
-        getData(cityID: id)
+        //let id = "1861835" // 飯塚市のID
+        getData(cityID: cityID)
     }
     
     // MARK: - 更新
     @IBAction func reloadButton(_ sender: Any) {
-        let id2 = "6455259" // パリのID
-        getData(cityID: id2)
+        //let id2 = "6455259" // パリのID
+        self.title = cityName
+        getData(cityID: cityID)
     }
     
     // MARK: - セルの数を取得
