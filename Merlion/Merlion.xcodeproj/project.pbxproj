@@ -10,6 +10,7 @@
 		8A06B95522B3DCD9005723A4 /* apikey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A06B95422B3DCD9005723A4 /* apikey.plist */; };
 		8A06B95922C106B0005723A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A06B95822C106B0005723A4 /* DetailViewController.swift */; };
 		8A84B5C622A9437F006A490A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84B5C522A9437F006A490A /* FirstViewController.swift */; };
+		FB06DC1122D3131B00602127 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06DC1022D3131B00602127 /* Data.swift */; };
 		FB3631C622AB9752006165AA /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3631C522AB9752006165AA /* NotificationController.swift */; };
 		FB75B72322AA97F20069D24C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72122AA97F20069D24C /* Alamofire.framework */; };
 		FB75B72422AA97F20069D24C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB75B72122AA97F20069D24C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,6 +46,7 @@
 		8A06B95422B3DCD9005723A4 /* apikey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikey.plist; sourceTree = "<group>"; };
 		8A06B95822C106B0005723A4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8A84B5C522A9437F006A490A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		FB06DC1022D3131B00602127 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FB3631C522AB9752006165AA /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		FB75B72122AA97F20069D24C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FB75B72222AA97F20069D24C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				FBDBBAE622A9340100F159EA /* SecondViewController.swift */,
 				FB3631C522AB9752006165AA /* NotificationController.swift */,
 				FB935A8722B3CF6E0096EE37 /* KeyManager.swift */,
+				FB06DC1022D3131B00602127 /* Data.swift */,
 				FBDBBAE822A9340100F159EA /* Main.storyboard */,
 				FBDBBAF922A9382200F159EA /* FirstView.storyboard */,
 				FBDBBAFB22A9383800F159EA /* SecondView.storyboard */,
@@ -237,6 +240,7 @@
 				8A84B5C622A9437F006A490A /* FirstViewController.swift in Sources */,
 				FB935A8822B3CF6E0096EE37 /* KeyManager.swift in Sources */,
 				8A06B95922C106B0005723A4 /* DetailViewController.swift in Sources */,
+				FB06DC1122D3131B00602127 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

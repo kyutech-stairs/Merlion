@@ -15,7 +15,7 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var cityPicker: UIPickerView!
 
     //cityList = [["city name", "cist id"]]
-    let cityList = [["札幌", "2128295"], ["仙台", "2111149"], ["新潟", "1855429"], ["東京", "1850147"], ["名古屋", "1856057"], ["京都", "1857910"], ["大阪", "1853909"], ["松江", "1857550"], ["山口", "1848681"], ["飯塚", "1861835"], ["沖縄", "1894610"]]
+    let cityList = [["札幌", "2128295"], ["仙台", "2111149"], ["新潟", "1855429"], ["東京", "1850147"], ["名古屋", "1856057"], ["京都", "1857910"], ["大阪", "1853909"], ["松江", "1857550"], ["山口", "1848681"], ["飯塚", "1861835"], ["沖縄", "1894616"]]
     
     //MARK: - override functions
     override func viewDidLoad() {
@@ -43,6 +43,8 @@ class SecondViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.cityLabel.text = cityList[row][0]
+        cityName = cityList[row][0]
+        cityID = cityList[row][1]
     }
 
 }
