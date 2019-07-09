@@ -27,10 +27,7 @@ class FirstViewController: UITableViewController {
     // MARK: - override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        //title = "weather forecast"
         self.title = cityName
-        
-        //let id = "1861835" // 飯塚市のID
         getData(cityID: cityID)
     }
     

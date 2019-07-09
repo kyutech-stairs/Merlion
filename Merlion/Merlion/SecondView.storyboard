@@ -37,7 +37,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dts-Dg-FLh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="setting" image="SecondViewIcon" id="woz-Gh-RQQ"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="SecondViewIcon" id="woz-Gh-RQQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cityLabel" destination="UsT-M6-noX" id="c4Q-OS-lq8"/>
