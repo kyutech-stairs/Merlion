@@ -59,8 +59,11 @@ class FirstViewController: UITableViewController {
         default:
             cell.imageView?.image = UIImage(named: "Unknown")
         }
-        cell.textLabel?.text = weather["main"]! as? String
-        cell.detailTextLabel?.text = weather["date"]! as? String
+        let date = Date(timeIntervalSince1970: weather["unixdate"] as! TimeInterval)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd HH:mm"
+        cell.textLabel?.text = formatter.string(from: date)
+        cell.detailTextLabel?.text = weather["main"] as? String
         return cell
     }
     
@@ -85,7 +88,8 @@ class FirstViewController: UITableViewController {
                         "date": json["list"][i]["dt_txt"].string,
                         "temp": json["list"][i]["main"]["temp"].double,
                         "humidity": json["list"][i]["main"]["humidity"].int,
-                        "wind": json["list"][i]["wind"]["speed"].double
+                        "wind": json["list"][i]["wind"]["speed"].double,
+                        "unixdate": json["list"][i]["dt"].double
                         ]
                     print(weatherData)
                     self.weatherData.append(weatherData) // 配列に要素を追加

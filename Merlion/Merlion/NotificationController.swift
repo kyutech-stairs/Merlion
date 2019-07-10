@@ -7,7 +7,6 @@
 //
 
 // 通知設定用ファイル
-// のちのち使用するかも
 
 import Foundation
 import UserNotifications
