@@ -15,6 +15,7 @@ class FirstViewController: UITableViewController {
     let weatherUrl = "http://api.openweathermap.org/data/2.5/forecast"
     var weatherData: [[String: Any?]] = [] // 天気データを入れるプロパティを定義
     var unixTime: [Int] = [] // UNIX時間
+    var weekDays: [String] = [] // Section用
     
     var giveMain: String = ""   // 天気
     var giveDate: String = ""   // 日時
